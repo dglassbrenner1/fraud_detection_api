@@ -31,7 +31,7 @@ class TransactionFeatures(BaseModel):
 app = FastAPI()
 
 # Load the model at startup (adjust model URI/version accordingly)
-model_uri = "models:/fraud_detection_pipeline_model/2"
+model_uri = "models:/workspace.default.fraud_detection_pipeline_model/2"
 model = mlflow.sklearn.load_model(model_uri)
 
 @app.post("/predict/")
