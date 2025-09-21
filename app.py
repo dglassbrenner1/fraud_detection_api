@@ -4,6 +4,12 @@ import mlflow.sklearn
 import pandas as pd
 from typing import List
 
+import mlflow
+
+# Set the MLflow tracking URI to your Databricks tracking server
+mlflow.set_tracking_uri("databricks")  # or the full HTTP URI of your tracking server
+
+
 # Define expected input schema (adjust fields as per your model features)
 class TransactionFeatures(BaseModel):
     TX_AMOUNT: float
@@ -25,7 +31,7 @@ class TransactionFeatures(BaseModel):
 app = FastAPI()
 
 # Load the model at startup (adjust model URI/version accordingly)
-model_uri = "models:/workspace.default.fraud_detection_pipeline_model/1"
+model_uri = "models:/fraud_detection_pipeline_model/2"
 model = mlflow.sklearn.load_model(model_uri)
 
 @app.post("/predict/")
