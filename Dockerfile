@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies
-RUN pip install --no-cache-dir fastapi uvicorn mlflow pandas pydantic
+RUN pip install --no-cache-dir fastapi uvicorn mlflow pandas pydantic xgboost scikit-learn==1.4.2 datetime pyspark
 
 # Expose port 8000 for the FastAPI app
 EXPOSE 8000
